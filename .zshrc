@@ -46,8 +46,11 @@ PROMPT='
 %(?.%F{green}.%F{red})[%* %~]%f `prompt_git_branch` `prompt_eks_profile`
 %F{green}$%f '
 
-export PATH="$HOME/bin:$PATH"
+# export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # hisotory
 export HISTFILE="$HOME/.zsh_history"
