@@ -9,9 +9,9 @@
 [pull]
   rebase = false # this is default
 [gpg]
-	program = gpg
+  program = gpg
 [commit]
-	gpgsign = true
+  gpgsign = true
 [alias]
   br = branch
   st = status -s
