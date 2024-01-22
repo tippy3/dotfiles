@@ -102,6 +102,7 @@ export CPPFLAGS="-I/usr/local/opt/mysql-client/include"
 # gh
 eval "$(gh completion -s zsh)"
 
+alias bb='brew bundle --global' # e.g. bb list --all
 alias g='git'
 alias k='kubectl'
 alias k9sr='k9s --readonly'
