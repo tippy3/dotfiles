@@ -12,6 +12,8 @@
   program = gpg
 [commit]
   gpgsign = true
+[tag]
+  gpgsign = true
 [alias]
   br = branch
   st = status -s
