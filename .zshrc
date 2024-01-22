@@ -52,6 +52,9 @@ export PATH="/usr/local/bin:$PATH"
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
 # hisotory
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=500 # memory
@@ -65,9 +68,6 @@ alias hist='history -i 1 | grep' # search
 
 # zsh-autosuggestions
 . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# asdf
-. /usr/local/opt/asdf/libexec/asdf.sh
 
 # goenv
 export GOENV_ROOT="$HOME/.goenv"
