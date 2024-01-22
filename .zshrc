@@ -55,6 +55,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # asdf
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
+# zsh-autosuggestions
+. /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # hisotory
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=500 # memory
@@ -66,25 +69,6 @@ setopt extended_history
 alias his='history -i' # with time
 alias hist='history -i 1 | grep' # search
 
-# zsh-autosuggestions
-. /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
 # k8s kubectl
 source <(kubectl completion zsh)
 
@@ -93,14 +77,6 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # k8s istioctl
 export PATH="$PATH:$HOME/.istioctl/bin"
-
-# mysql-client
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/mysql-client/lib"
-export CPPFLAGS="-I/usr/local/opt/mysql-client/include"
-
-# gh
-eval "$(gh completion -s zsh)"
 
 alias bb='brew bundle --global' # e.g. bb list --all
 alias g='git'
