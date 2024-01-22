@@ -3,6 +3,9 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -Uz compinit
 compinit
 
+# zsh-autosuggestions
+. /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # git status
 function prompt_git_branch {
   local branch_name st branch_status
@@ -58,9 +61,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # asdf
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-# zsh-autosuggestions
-. /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # hisotory
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=500 # memory
@@ -91,9 +91,8 @@ alias difff='colordiff -y --suppress-common-lines'
 alias fig='docker-compose'
 alias echoaws='echo $AWS_PROFILE && aws sts get-caller-identity'
 alias c-aws='code ~/.aws/'
+alias c-dot='code ~/Documents/tippy3/dotfiles/'
 alias c-ssh='code ~/.ssh/'
-alias c-git='code ~/.gitconfig'
-alias c-zsh='code ~/.zshrc'
 alias s-zsh='source ~/.zshrc'
 
 # include private settings
