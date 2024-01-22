@@ -1,11 +1,3 @@
-# https://docs.brew.sh/Shell-Completion
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-autoload -Uz compinit
-compinit
-
-# zsh-autosuggestions
-. /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # git status
 function prompt_git_branch {
   local branch_name st branch_status
@@ -52,14 +44,28 @@ PROMPT='
 %(?.%F{green}.%F{red})[%* %~]%f `prompt_git_branch` `prompt_eks_profile`
 %F{green}$%f '
 
-# export PATH="$HOME/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# https://docs.brew.sh/Shell-Completion
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+autoload -Uz compinit
+compinit
+
+# zsh-autosuggestions
+. /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # asdf
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# k8s kubectl
+source <(kubectl completion zsh)
+
+# # k8s krew
+# export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# # k8s istioctl
+# export PATH="$PATH:$HOME/.istioctl/bin"
 
 # hisotory
 export HISTFILE="$HOME/.zsh_history"
@@ -72,15 +78,7 @@ setopt extended_history
 alias his='history -i' # with time
 alias hist='history -i 1 | grep' # search
 
-# k8s kubectl
-source <(kubectl completion zsh)
-
-# k8s krew
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-# k8s istioctl
-export PATH="$PATH:$HOME/.istioctl/bin"
-
+# alias
 alias bb='brew bundle --global' # e.g. bb list --all
 alias g='git'
 alias k='kubectl'
