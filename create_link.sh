@@ -3,6 +3,7 @@ set -e
 
 repo_dir="$(cd "$(dirname "$0")" && pwd)"
 
-ln -sf $repo_dir/.gitconfig ~/.gitconfig
-ln -sf $repo_dir/.gitignore_global ~/.gitignore_global
-ln -sf $repo_dir/.zshrc ~/.zshrc
+dotfiles="$(ls -F -d .* | grep -v /)"
+for dotfile in $dotfiles; do
+  ln -sf $repo_dir/$dotfile ~/$dotfile
+done
