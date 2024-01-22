@@ -16,3 +16,9 @@ cd dotfiles
 ```zsh
 ./create_link.sh
 ```
+
+### macOSの設定
+
+```zsh
+./defaults.sh
+```
