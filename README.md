@@ -2,7 +2,7 @@
 
 ### git clone
 
-まずはSSH用の鍵を作る
+まずはSSHキーを作る
 
 ```zsh
 curl -sf https://raw.githubusercontent.com/tippy3/dotfiles/main/init_github.sh | sh -
@@ -32,11 +32,11 @@ cd dotfiles
 ```zsh
 # Homebrewのインストール
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# 
+# ~/.Brewfileを使ってbrew install
 brew bundle --global
 ```
 
-### GPGキーの作成
+### GitHub用のGPGキーの作成
 
 ```zsh
 # GPGキーの作成
