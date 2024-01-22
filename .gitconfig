@@ -1,0 +1,28 @@
+[include]
+  path = ~/Documents/tippy3/dotfiles/private/.gitconfig
+[core]
+  excludesfile = ~/.gitignore_global
+[color]
+  ui = true
+[push]
+  default = current
+[pull]
+  rebase = false # this is default
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
+[alias]
+  br = branch
+  st = status -s
+  ch = checkout
+  co = commit
+  pl = pull
+  ps = push
+  fp = fetch --prune
+  sw = switch
+  plm = pull origin master
+  plma = pull origin main
+  difff = diff --color-words
+  his = log --oneline
+  graph = log --oneline --graph --decorate
