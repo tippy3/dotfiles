@@ -13,3 +13,6 @@ defaults write com.apple.screencapture name Screenshot
 
 # スクリーンショットの影を消す
 defaults write com.apple.screencapture disable-shadow -bool true
+
+# Finderは即時反映したいので再起動
+killall Finder
