@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 brew "asdf"
+brew "gh"
 brew "gpg"
 brew "pinentry-mac"
 brew "zsh-autosuggestions"
