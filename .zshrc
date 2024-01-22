@@ -1,4 +1,7 @@
-autoload -Uz compinit && compinit
+# https://docs.brew.sh/Shell-Completion
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+autoload -Uz compinit
+compinit
 
 # git status
 function prompt_git_branch {
