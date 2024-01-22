@@ -35,3 +35,14 @@ cd dotfiles
 # 
 brew bundle --global
 ```
+
+### GPGキーの作成
+
+```zsh
+# GPGキーの作成
+# ECC, Curve 25519, 無期限
+# 名前とメールアドレスはGitHubのもの。コメントとパスワードは空
+LANG=C gpg --full-gen-key
+# 公開鍵をクリップボードにコピーしてGitHubに登録
+gpg -a --export C6E58267D8785108F1408B4BD88ED59EBA88F15B | pbcopy
+```
