@@ -2,9 +2,19 @@
 
 ### git clone
 
-ssh鍵の作成前なのでzipでダウンロードする
+先にSSH用の鍵を作る
 
-展開先: `~/Documents/tippy3/dotfiles`
+```zsh
+./init_github.sh
+```
+
+出力された公開鍵をGitHubに登録する
+
+```zsh
+cd ~/Documents/tippy3
+git clone git@github.com:tippy3/dotfiles.git
+cd dotfiles
+```
 
 `private/`は個人情報を含むのでgit管理していない。自力でコピーする
 
@@ -15,6 +25,4 @@ ssh鍵の作成前なのでzipでダウンロードする
 ./create_link.sh
 # macOSの設定
 ./defaults.sh
-# GitHubの設定
-./init_github.sh
 ```
