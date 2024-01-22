@@ -13,5 +13,7 @@ ssh-keygen -t ed25519 -f ~/.ssh/$keyname -N "" -C $email
 echo "Host github.com" >> ~/.ssh/config
 echo "  IdentityFile ~/.ssh/$keyname" >> ~/.ssh/config
 
-echo "Publick key:"
+echo "Public key"
+echo "--------------------"
 cat ~/.ssh/$keyname.pub
+echo "--------------------"

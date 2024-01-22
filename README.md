@@ -5,7 +5,7 @@
 先にSSH用の鍵を作る
 
 ```zsh
-./init_github.sh
+curl -sf https://raw.githubusercontent.com/tippy3/dotfiles/main/init_github.sh | sh -
 ```
 
 出力された公開鍵をGitHubに登録する
