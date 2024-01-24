@@ -32,9 +32,13 @@ cd dotfiles
 ```zsh
 # Homebrewのインストール
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# ~/.Brewfileを使ってbrew install
+# ~/.Brewfileにあるものをすべてinstall
 alias bb='brew bundle --global'
 bb -v
+#  ~/.Brewfileにないものをすべてuninstall
+bb cleanup -f
+# アップデートのチェック
+bb check
 ```
 
 ### asdf (.tool-versions)
@@ -46,6 +50,8 @@ asdf install
 asdf plugin add kubectl
 # pluginのアップデート
 asdf plugin update --all
+# pluginの検索
+asdf plugin list all | grep kubectl
 # .tool-versionsへの追加
 asdf global kubectl 1.25.16
 ```
