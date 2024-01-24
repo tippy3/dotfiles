@@ -27,13 +27,27 @@ cd dotfiles
 ./defaults.sh
 ```
 
-### Brewfileの使い方
+### Homebrew (.Brewfile)
 
 ```zsh
 # Homebrewのインストール
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # ~/.Brewfileを使ってbrew install
-brew bundle --global
+alias bb='brew bundle --global'
+bb -v
+```
+
+### asdf (.tool-versions)
+
+```zsh
+# .tool-versionsにあるものをすべてinstall
+asdf install
+# pluginがない場合はinstallが必要
+asdf plugin add kubectl
+# pluginのアップデート
+asdf plugin update --all
+# .tool-versionsへの追加
+asdf global kubectl 1.25.16
 ```
 
 ### GitHub用のGPGキーの作成
