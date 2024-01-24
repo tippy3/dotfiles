@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 brew "asdf"
+brew "awscli"
 brew "gh"
 brew "gpg"
 brew "jq"
