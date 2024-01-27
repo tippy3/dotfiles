@@ -78,7 +78,10 @@ setopt extended_history
 alias his='history -i' # with time
 alias hist='history -i 1 | grep' # search
 
-# alias
+# GNU command
+alias sed='gsed'
+
+# shortcuts
 alias bb='brew bundle --global' # e.g. bb list --all
 alias g='git'
 alias k='kubectl'
