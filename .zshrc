@@ -75,21 +75,21 @@ setopt share_history
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt extended_history
-alias -g his='history -i' # with time
-alias -g hist='history -i 1 | grep' # search
+alias his='history -i' # with time
+alias hist='history -i 1 | grep' # search
 
 # GNU command
 alias -g sed='gsed'
 
 # shortcuts
-alias -g bb='brew bundle --global' # e.g. bb list --all
+alias bb='brew bundle --global' # e.g. bb list --all
 alias -g g='git'
 alias -g k='kubectl'
-alias -g k9sr='k9s --readonly'
-alias -g ll='ls -alhF'
+alias k9sr='k9s --readonly'
+alias ll='ls -alhF'
 alias -g diff='colordiff'
 alias -g difff='colordiff -y --suppress-common-lines'
-alias -g fig='docker-compose' 
+alias fig='docker-compose' 
 alias c-aws='code ~/.aws/'
 alias c-dot='code ~/Documents/tippy3/dotfiles/'
 alias c-ssh='code ~/.ssh/'
