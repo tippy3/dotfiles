@@ -1,5 +1,5 @@
 # git status
-function prompt_git_branch {
+function prompt_git_branch() {
   local branch_name st branch_status
   if [ ! -e  ".git" ]; then
     return
@@ -24,10 +24,10 @@ function prompt_git_branch {
 }
 
 # AWS profile
-function prompt_eks_profile {
+function prompt_eks_profile() {
   echo "%F{green}[$myprofile]%f"
 }
-function set_eks_profile {
+function set_eks_profile() {
   export myprofile="$1"
   export myenv="$2"
   echo "myenv=$myenv"
@@ -36,6 +36,13 @@ function set_eks_profile {
   if [[ -n "$eks_cluster" ]]; then
     aws eks update-kubeconfig --name "$eks_cluster" || ( aws sso login && aws eks update-kubeconfig --name "$eks_cluster" )
   fi
+}
+
+function codes() {
+  for file in $(find . -name "*${1}"); do
+    echo "$file"
+    code "$file"
+  done
 }
 
 # main prompt
