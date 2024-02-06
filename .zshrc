@@ -62,7 +62,7 @@ compinit
 source <(kubectl completion zsh)
 
 # # k8s krew
-# export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 # # k8s istioctl
 # export PATH="$PATH:$HOME/.istioctl/bin"
