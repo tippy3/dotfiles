@@ -38,6 +38,7 @@ function set_eks_profile() {
   fi
 }
 
+# open files with vscode
 function codes() {
   for file in $(find . -name "*${1}"); do
     echo "$file"
