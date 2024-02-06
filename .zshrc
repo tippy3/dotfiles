@@ -40,7 +40,7 @@ function set_eks_profile() {
 
 # open files with vscode
 function codes() {
-  for file in $(find . -name "*${1}"); do
+  for file in $(find . -name "${1}"); do
     echo "$file"
     code "$file"
   done
