@@ -2,6 +2,8 @@
   path = ~/Documents/tippy3/dotfiles/private/.gitconfig
 [core]
   excludesfile = ~/.gitignore_global
+[pager]
+  diff =
 [color]
   ui = true
 [push]
@@ -25,6 +27,6 @@
   sw = switch
   plm = pull origin master
   plma = pull origin main
-  difff = --no-pager diff --color-words
+  dif = diff --color-words
   his = log --oneline
   graph = log --oneline --graph --decorate
