@@ -2,10 +2,10 @@
   path = ~/Documents/tippy3/dotfiles/private/.gitconfig
 [core]
   excludesfile = ~/.gitignore_global
-[pager]
-  diff =
 [color]
   ui = true
+[pager]
+  diff =
 [push]
   default = current
 [pull]
@@ -19,15 +19,13 @@
   gpgsign = true
 [alias]
   br = branch
-  st = status -s
   ch = checkout
   co = commit
   pl = pull
   ps = push
-  fp = fetch --prune
   sw = switch
-  plm = pull origin master
-  plma = pull origin main
+  st = status -s
+  fp = fetch --prune
   dif = diff --color-words
   his = log --oneline
   graph = log --oneline --graph --decorate
