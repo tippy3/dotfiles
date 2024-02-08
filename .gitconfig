@@ -25,6 +25,6 @@
   sw = switch
   plm = pull origin master
   plma = pull origin main
-  dif = --no-pager diff --color-words
+  difff = --no-pager diff --color-words
   his = log --oneline
   graph = log --oneline --graph --decorate
