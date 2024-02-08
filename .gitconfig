@@ -9,6 +9,7 @@
 [push]
   default = current
 [pull]
+  default = current
   rebase = false # this is default
 [gpg]
   program = gpg
