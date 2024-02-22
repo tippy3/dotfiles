@@ -1,3 +1,4 @@
+istioctl 1.20.2
 kubectl 1.25.16
 kustomize 5.3.0
-istioctl 1.20.2
+python 3.12.2
