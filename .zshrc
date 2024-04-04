@@ -89,6 +89,9 @@ setopt extended_history
 alias his='history -i' # with time
 alias hist='history -i 1 | grep' # search
 
+# less
+export LESSHISTFILE=- # don't save history
+
 # GNU command
 alias -g sed='gsed'
 
