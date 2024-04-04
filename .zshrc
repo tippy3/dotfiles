@@ -66,6 +66,9 @@ compinit
 # asdf
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
+# rbenv
+eval "$(rbenv init - zsh)"
+
 # k8s kubectl
 source <(kubectl completion zsh)
 
