@@ -26,6 +26,7 @@
   sw = switch
   st = status -s
   fp = fetch --prune
+  clf = clean -df
   dif = diff --color-words
   his = log --oneline
   graph = log --oneline --graph --decorate
