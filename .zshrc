@@ -66,6 +66,11 @@ compinit
 # asdf
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # rbenv
 eval "$(rbenv init - zsh)"
 
