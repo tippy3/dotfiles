@@ -1,6 +1,8 @@
+tap "aws/tap"
 tap "fluxcd/tap"
 tap "homebrew/bundle"
 brew "asdf"
+brew "aws/tap/eks-node-viewer"
 brew "awscli"
 brew "cfn-lint"
 brew "colordiff"
