@@ -44,16 +44,17 @@ bb check
 ### asdf (.tool-versions)
 
 ```zsh
+# 最初に.tool-versionsに書く
 # .tool-versionsにあるものをすべてinstall
 asdf install
 # pluginがない場合はinstallが必要
 asdf plugin add kubectl
-# pluginのアップデート
-asdf plugin update --all
 # pluginの検索
 asdf plugin list all | grep kubectl
-# .tool-versionsへの追加
-asdf global kubectl 1.25.16
+# pluginのアップデート
+asdf plugin update --all
+# バージョンの検索
+asdf list all kubectl
 ```
 
 ### GitHub用のGPGキーの作成
