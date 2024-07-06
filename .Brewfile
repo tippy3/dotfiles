@@ -1,6 +1,7 @@
 tap "aws/tap"
 tap "fluxcd/tap"
 tap "homebrew/bundle"
+brew "actionlint"
 brew "asdf"
 brew "aws/tap/eks-node-viewer"
 brew "awscli"
