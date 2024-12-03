@@ -30,11 +30,14 @@ function prompt_eks_profile() {
 function set_eks_profile() {
   export myprofile="$1"
   export myenv="$2"
-  echo "myenv=$myenv"
   export AWS_PROFILE="$3"
   eks_cluster="$4"
+  echo "myenv=$myenv"
+  if ! aws sts get-caller-identity 1>/dev/null 2>/dev/null; then
+    aws sso login
+  fi
   if [[ -n "$eks_cluster" ]]; then
-    aws eks update-kubeconfig --name "$eks_cluster" || ( aws sso login && aws eks update-kubeconfig --name "$eks_cluster" )
+    aws eks update-kubeconfig --name "$eks_cluster"
   fi
 }
 
