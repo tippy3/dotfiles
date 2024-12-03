@@ -1,7 +1,7 @@
 # git status
 function prompt_git_branch() {
   local branch_name st branch_status
-  if [ ! -e  ".git" ]; then
+  if [ ! -e ".git" ]; then
     return
   fi
   branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
