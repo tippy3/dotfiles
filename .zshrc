@@ -83,11 +83,8 @@ eval "$(rbenv init - zsh)"
 # k8s kubectl
 source <(kubectl completion zsh)
 
-# # k8s krew
+# # k8s krew https://krew.sigs.k8s.io/docs/user-guide/setup/install/
 export PATH="${PATH}:${HOME}/.krew/bin"
-
-# # k8s istioctl
-# export PATH="$PATH:$HOME/.istioctl/bin"
 
 # hisotory
 export HISTFILE="$HOME/.zsh_history"
