@@ -49,6 +49,21 @@ function codes() {
   done
 }
 
+# login to ECR
+function docker-login() {
+  if ! docker info 1>/dev/null 2>/dev/null; then
+    echo "Docker Desktop is not running" 1>&2
+    return 1
+  fi
+  ecr_endpoint="$(aws sts get-caller-identity --query Account --output text).dkr.ecr.ap-northeast-1.amazonaws.com"
+  read "ANSWER?Log in to $ecr_endpoint ? (y/n) "
+  if [ "$ANSWER" != "y" ]; then
+    echo "Canceled" 1>&2
+    return 1
+  fi
+  aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin "$ecr_endpoint"
+}
+
 # main prompt
 setopt prompt_subst
 PROMPT='
