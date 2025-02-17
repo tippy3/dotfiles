@@ -82,7 +82,7 @@ compinit
 . /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # fnm
 eval "$(fnm env --use-on-cd)"
