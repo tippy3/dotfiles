@@ -50,6 +50,7 @@ export FZF_DEFAULT_OPTS='--reverse'
 source <(fzf --zsh)
 
 # starship
+export STARSHIP_CONFIG="$HOME/.starship.toml"
 eval "$(starship init zsh)"
 
 # asdf
