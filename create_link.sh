@@ -5,5 +5,6 @@ repo_dir="$(cd "$(dirname "$0")" && pwd)"
 
 dotfiles="$(ls -F -d .* | grep -v /)"
 for dotfile in $dotfiles; do
+  echo "$dotfile"
   ln -sf $repo_dir/$dotfile ~/$dotfile
 done
