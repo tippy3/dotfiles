@@ -7,7 +7,8 @@ compinit
 . /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # fzf
-export FZF_DEFAULT_OPTS='--reverse'
+export FZF_DEFAULT_OPTS="--reverse"
+export FZF_CTRL_R_OPTS="--bind 'ctrl-e:become(printf %s {q})'"
 source <(fzf --zsh)
 
 # fzf-tab
