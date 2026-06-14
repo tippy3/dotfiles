@@ -75,14 +75,13 @@ export PATH="${PATH}:${HOME}/.krew/bin"
 
 # hisotory
 export HISTFILE="$HOME/.zsh_history"
-export HISTSIZE=500 # memory
-export SAVEHIST=5000 # file
-setopt share_history
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
-setopt extended_history
-alias his='history -i' # with time
-alias hist='history -i 1 | grep' # search
+export HISTSIZE=50000 # memory
+export SAVEHIST=50000 # file
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
 
 # less
 export LESSHISTFILE=- # don't save history
