@@ -69,6 +69,7 @@ alias diff='colordiff -u'
 alias difff='colordiff -y --suppress-common-lines'
 alias fig='docker-compose' 
 alias c-aws='code ~/.aws/'
+alias c-kube='code ~/.kube/'
 alias c-dot='code ~/Documents/tippy3/dotfiles/'
 alias c-ssh='code ~/.ssh/'
 alias s-zsh='source ~/.zshrc'
@@ -79,19 +80,29 @@ bindkey '^[[1;2B' kill-line # Shift + Down
 bindkey '^[[1;2C' forward-word # Shift + Right
 bindkey '^[[1;2D' backward-word # Shift + Left
 
-# Set AWS_PROFILE and kubeconfig
-function set_eks_profile() {
-  export myprofile="$1"
-  export myenv="$2"
-  export AWS_PROFILE="$3"
-  eks_cluster="$4"
-  echo "myenv=$myenv"
+# Set MY_CONTEXT
+function set_my_context() {
+  export MY_CONTEXT="$1"
+  export AWS_PROFILE="$2"
+  eks_cluster="$3"
+
+  echo "$MY_CONTEXT: $AWS_PROFILE, $eks_cluster"
   if ! aws sts get-caller-identity 1>/dev/null 2>/dev/null; then
     aws sso login
   fi
   if [[ -n "$eks_cluster" ]]; then
-    aws eks update-kubeconfig --name "$eks_cluster"
+    aws eks update-kubeconfig --name "$eks_cluster" --alias "$MY_CONTEXT"
+    kubectl --context "$MY_CONTEXT" config unset current-context
   fi
+}
+
+# Override kubectl
+function kubectl() {
+  if [ -z "${MY_CONTEXT:-}" ]; then
+    echo "error: MY_CONTEXT is not set" >&2
+    return 1
+  fi
+  command kubectl --context "$MY_CONTEXT" "$@"
 }
 
 # Open files with vscode
