@@ -13,7 +13,7 @@ function set_eks_profile() {
   fi
 }
 
-# open files with vscode
+# Open files with vscode
 function codes() {
   for file in $(find . -name "*${1}"); do
     echo "$file"
@@ -21,8 +21,8 @@ function codes() {
   done
 }
 
-# login to ECR
-function docker-login() {
+# Login to ECR
+function ecr-login() {
   if ! docker info 1>/dev/null 2>/dev/null; then
     echo "Docker Desktop is not running" 1>&2
     return 1
@@ -73,7 +73,7 @@ source <(kubectl completion zsh)
 # # k8s krew https://krew.sigs.k8s.io/docs/user-guide/setup/install/
 export PATH="${PATH}:${HOME}/.krew/bin"
 
-# hisotory
+# history
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=50000 # memory
 export SAVEHIST=50000 # file
@@ -86,13 +86,11 @@ setopt SHARE_HISTORY
 # less
 export LESSHISTFILE=- # don't save history
 
-# GNU command
-alias -g sed='gsed'
-
-# shortcuts
+# Aliases
 alias bb='brew bundle --global' # e.g. bb list --all
 alias -g g='git'
 alias -g k='kubectl'
+alias -g sed='gsed'
 alias k9sr='k9s --readonly'
 alias ll='ls -alhF'
 alias diff='colordiff -u'
@@ -102,6 +100,12 @@ alias c-aws='code ~/.aws/'
 alias c-dot='code ~/Documents/tippy3/dotfiles/'
 alias c-ssh='code ~/.ssh/'
 alias s-zsh='source ~/.zshrc'
+
+# bindkey
+bindkey '^[[1;2A' kill-word # Shift + Up
+bindkey '^[[1;2B' kill-line # Shift + Down
+bindkey '^[[1;2C' forward-word # Shift + Right
+bindkey '^[[1;2D' backward-word # Shift + Left
 
 # include private settings
 . ~/Documents/tippy3/dotfiles/private/.zshrc
