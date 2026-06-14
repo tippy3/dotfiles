@@ -37,7 +37,6 @@ function ecr-login() {
 }
 
 # homebrew
-# https://docs.brew.sh/Shell-Completion
 eval "$(/opt/homebrew/bin/brew shellenv)"
 autoload -Uz compinit
 compinit
@@ -48,6 +47,15 @@ compinit
 # fzf
 export FZF_DEFAULT_OPTS='--reverse'
 source <(fzf --zsh)
+
+# fzf-tab
+source /opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh
+
+# carapace
+# https://carapace-sh.github.io/carapace-bin/setup.html
+export CARAPACE_BRIDGES='zsh,bash'
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
 
 # starship
 export STARSHIP_CONFIG="$HOME/.starship.toml"
@@ -70,7 +78,8 @@ eval "$(rbenv init - zsh)"
 # k8s kubectl
 source <(kubectl completion zsh)
 
-# # k8s krew https://krew.sigs.k8s.io/docs/user-guide/setup/install/
+# k8s krew
+# https://krew.sigs.k8s.io/docs/user-guide/setup/install/
 export PATH="${PATH}:${HOME}/.krew/bin"
 
 # history
