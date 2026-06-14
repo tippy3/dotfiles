@@ -1,41 +1,3 @@
-# Set AWS_PROFILE and kubeconfig
-function set_eks_profile() {
-  export myprofile="$1"
-  export myenv="$2"
-  export AWS_PROFILE="$3"
-  eks_cluster="$4"
-  echo "myenv=$myenv"
-  if ! aws sts get-caller-identity 1>/dev/null 2>/dev/null; then
-    aws sso login
-  fi
-  if [[ -n "$eks_cluster" ]]; then
-    aws eks update-kubeconfig --name "$eks_cluster"
-  fi
-}
-
-# Open files with vscode
-function codes() {
-  for file in $(find . -name "*${1}"); do
-    echo "$file"
-    code "$file"
-  done
-}
-
-# Login to ECR
-function ecr-login() {
-  if ! docker info 1>/dev/null 2>/dev/null; then
-    echo "Docker Desktop is not running" 1>&2
-    return 1
-  fi
-  ecr_endpoint="$(aws sts get-caller-identity --query Account --output text).dkr.ecr.ap-northeast-1.amazonaws.com"
-  read "ANSWER?Log in to $ecr_endpoint ? (y/n) "
-  if [ "$ANSWER" != "y" ]; then
-    echo "Canceled" 1>&2
-    return 1
-  fi
-  aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin "$ecr_endpoint"
-}
-
 # homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 autoload -Uz compinit
@@ -115,6 +77,44 @@ bindkey '^[[1;2A' kill-word # Shift + Up
 bindkey '^[[1;2B' kill-line # Shift + Down
 bindkey '^[[1;2C' forward-word # Shift + Right
 bindkey '^[[1;2D' backward-word # Shift + Left
+
+# Set AWS_PROFILE and kubeconfig
+function set_eks_profile() {
+  export myprofile="$1"
+  export myenv="$2"
+  export AWS_PROFILE="$3"
+  eks_cluster="$4"
+  echo "myenv=$myenv"
+  if ! aws sts get-caller-identity 1>/dev/null 2>/dev/null; then
+    aws sso login
+  fi
+  if [[ -n "$eks_cluster" ]]; then
+    aws eks update-kubeconfig --name "$eks_cluster"
+  fi
+}
+
+# Open files with vscode
+function codes() {
+  for file in $(find . -name "*${1}"); do
+    echo "$file"
+    code "$file"
+  done
+}
+
+# Login to ECR
+function ecr-login() {
+  if ! docker info 1>/dev/null 2>/dev/null; then
+    echo "Docker Desktop is not running" 1>&2
+    return 1
+  fi
+  ecr_endpoint="$(aws sts get-caller-identity --query Account --output text).dkr.ecr.ap-northeast-1.amazonaws.com"
+  read "ANSWER?Log in to $ecr_endpoint ? (y/n) "
+  if [ "$ANSWER" != "y" ]; then
+    echo "Canceled" 1>&2
+    return 1
+  fi
+  aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin "$ecr_endpoint"
+}
 
 # include private settings
 . ~/Documents/tippy3/dotfiles/private/.zshrc
