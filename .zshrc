@@ -117,6 +117,15 @@ function kubectl() {
   command kubectl --context "$MY_CONTEXT" "$@"
 }
 
+# Override k9s
+function k9s() {
+  if [ -z "${MY_CONTEXT:-}" ]; then
+    echo "error: MY_CONTEXT is not set" >&2
+    return 1
+  fi
+  command k9s --context "$MY_CONTEXT" "$@"
+}
+
 # Open files with vscode
 function codes() {
   for file in $(find . -name "*${1}"); do
