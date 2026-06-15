@@ -1,7 +1,17 @@
-format = '$time$all'
+format = "$time$all"
 
 [time]
 disabled = false
 format = '[$time]($style) '
 time_format = '%H:%M:%S'
 style = 'white'
+
+[aws]
+disabled = true
+
+[env_var]
+symbol = '☁️ '
+variable = 'MY_CONTEXT'
+format = '[$symbol $env_value]($style) '
+style = 'bold yellow'
+disabled = false
