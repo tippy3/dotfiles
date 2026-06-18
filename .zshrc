@@ -134,5 +134,28 @@ function codes() {
   done
 }
 
+# git pull && git branch -d
+function gpl() {
+  local current_branch default_branch merged_branches
+
+  current_branch="$(git symbolic-ref --quiet --short HEAD 2>/dev/null)"
+  default_branch="$(git symbolic-ref --quiet --short refs/remotes/origin/HEAD 2>/dev/null | sed 's@^origin/@@')"
+  : "${default_branch:=main}"
+
+  if [[ "$current_branch" != "$default_branch" ]]; then
+    echo "error: current branch ($current_branch) is not the default branch ($default_branch)" >&2
+    return 1
+  fi
+
+  git pull --ff-only origin "$default_branch"
+
+  merged_branches="$(git branch --merged | sed 's/^[* ]*//' | grep -vE "^(${default_branch}|main|master|gh-pages)$")"
+
+  if [[ -n "$merged_branches" ]]; then
+    echo "Deleting merged branches"
+    echo "$merged_branches" | xargs git branch -d
+  fi
+}
+
 # include private settings
 . ~/Documents/tippy3/dotfiles/private/.zshrc
