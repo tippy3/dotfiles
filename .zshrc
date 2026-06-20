@@ -127,6 +127,15 @@ function k9s() {
   command k9s --context "$MY_CONTEXT" "$@"
 }
 
+# Override istioctl
+function istioctl() {
+  if [ -z "${MY_CONTEXT:-}" ]; then
+    echo "error: MY_CONTEXT is not set" >&2
+    return 1
+  fi
+  command istioctl --context "$MY_CONTEXT" "$@"
+}
+
 # Open files with vscode
 function codes() {
   for file in $(find . -name "*${1}"); do
