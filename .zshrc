@@ -39,6 +39,7 @@ eval "$(pyenv init -)"
 eval "$(rbenv init - zsh)"
 
 # k8s kubectl
+(( $+functions[kubectl] )) && unfunction kubectl
 source <(kubectl completion zsh)
 
 # k8s krew
