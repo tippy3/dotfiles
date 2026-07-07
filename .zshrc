@@ -56,6 +56,9 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 setopt SHARE_HISTORY
 
+# vscode shell integration
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "/Applications/Visual Studio Code.app/Contents/Resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-rc.zsh"
+
 # less
 export LESSHISTFILE=- # don't save history
 
