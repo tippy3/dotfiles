@@ -130,6 +130,15 @@ function k9s() {
   command k9s --context "$MY_CONTEXT" "$@"
 }
 
+# Override flux
+function flux() {
+  if [ -z "${MY_CONTEXT:-}" ]; then
+    echo "error: MY_CONTEXT is not set" >&2
+    return 1
+  fi
+  command flux --context "$MY_CONTEXT" "$@"
+}
+
 # Override istioctl
 function istioctl() {
   if [ -z "${MY_CONTEXT:-}" ]; then
