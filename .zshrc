@@ -150,7 +150,9 @@ function istioctl() {
 
 # Open files with vscode
 function codes() {
-  for file in $(find . -name "*${1}"); do
+  [[ -z "$1" ]] && { echo "usage: codes <suffix>" >&2; return 1; }
+  local file
+  find . -name "*${1}" -print0 | while IFS= read -r -d '' file; do
     echo "$file"
     code "$file"
   done
