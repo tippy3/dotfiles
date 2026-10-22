@@ -3,9 +3,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 autoload -Uz compinit
 compinit
 
-# zsh-autosuggestions
-. /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # fzf
 export FZF_DEFAULT_OPTS="--reverse"
 export FZF_CTRL_R_OPTS="--bind 'ctrl-e:become(printf %s {q})'"
@@ -13,6 +10,9 @@ source <(fzf --zsh)
 
 # fzf-tab
 source /opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh
+
+# zsh-autosuggestions
+. /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # carapace
 # https://carapace-sh.github.io/carapace-bin/setup.html
