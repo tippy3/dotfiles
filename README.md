@@ -74,4 +74,5 @@ gpg -a --export C6E58267D8785108F1408B4BD88ED59EBA88F15B | pbcopy
   - https://code.visualstudio.com/docs/editor/settings-sync
   - GitHubアカウントを使用
 - Claudeのシンボリックリンクは手動で作成が必要
-  - `ln -sf private/claude-settings.json ~/.claude/settings.json`
+  - `ln -sf claude/claude-settings.json ~/.claude/settings.json`
+  - `ln -sf claude/CLAUDE.md ~/.claude/CLAUDE.md`
