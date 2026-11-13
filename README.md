@@ -16,7 +16,7 @@ git clone git@github.com:tippy3/dotfiles.git
 cd dotfiles
 ```
 
-[private/](./private)は個人情報を含むのでgit管理していない。自力でコピーする。
+`claude/`と`private/`は個人情報を含むのでgit管理していない。自力でコピーする。
 
 ### 各スクリプトの使い方
 
